@@ -96,6 +96,17 @@ for (const item of perguntas) {
     const dt = quizItem.querySelector("dl dt").cloneNode(true);
     //É inserido na tag span da variavel resposta o conteúdo igual ao atributo resposta de cada item.
     dt.querySelector("span").textContent = resposta;
+    dt.querySelector("input").setAttribute(
+      "name",
+      "pergunta- " + perguntas.indexOf(item)
+    );
+    dt.querySelector("input").value = item.respostas.indexOf(resposta);
+    dt.querySelector("input").onchange = (event) => {
+      const estaCorreta = event.target.value == item.correta;
+      if (estaCorreta) {
+      } else {
+      }
+    };
 
     //Mostra na tela as respostas
     quizItem.querySelector("dl").appendChild(dt);
