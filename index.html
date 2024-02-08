@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <title>Quiz</title>
   </head>
   <body>
@@ -19,21 +23,14 @@
               <input type="radio" value="0" name="item" />
               <span>Resposta A</span>
             </dt>
-            <!--
-            <dt>
-              <input type="radio" value="1" name="item" />
-              <span>Resposta B</span>
-            </dt>
-            <dt>
-              <input type="radio" value="2" name="item" />
-              <span>Resposta C</span>
-            </dt>
-            -->
           </dl>
         </div>
       </template>
     </main>
-    <footer></footer>
+    <footer id="acertos">
+      <strong>Acertos</strong>
+      <span>0 de 10</span>
+    </footer>
   </body>
   <script src="JS/index.js"></script>
 </html>

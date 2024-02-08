@@ -82,6 +82,10 @@ const template = document.querySelector("template");
 //Atribui a variável quiz, a tag que contém o id quiz através do query selector
 const quiz = document.querySelector("#quiz");
 
+const corretas = new Set();
+const totalDePerguntas = perguntas.length;
+const mostrarTotal = document.querySelector("#acertos span");
+mostrarTotal.textContent = corretas.size + " de " + totalDePerguntas;
 //Foi criado um laço para repetir as perguntas e as respostas a quantidade existente no array perguntas
 //Para cada item do array perguntas ele executa a tarefa
 for (const item of perguntas) {
@@ -103,9 +107,11 @@ for (const item of perguntas) {
     dt.querySelector("input").value = item.respostas.indexOf(resposta);
     dt.querySelector("input").onchange = (event) => {
       const estaCorreta = event.target.value == item.correta;
+      corretas.delete(item);
       if (estaCorreta) {
-      } else {
+        corretas.add(item);
       }
+      mostrarTotal.textContent = corretas.size + " de " + totalDePerguntas;
     };
 
     //Mostra na tela as respostas
